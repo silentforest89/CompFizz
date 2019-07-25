@@ -54,8 +54,10 @@ ax.set_xlabel('X-coord',labelpad=4,fontweight='normal',
               fontsize='large')
 ax.set_ylabel('Y-coord',labelpad=3,fontweight='normal',
               fontsize='large')
-#fig.suptitle('N = {}, Grid = {}x{}'
-#             .format(numwalkers,gridsize,gridsize),y=0.95)
+
+#fig.suptitle('N = {}, Grid = {}x{}'.format(numwalkers,gridsize,gridsize),y=0.95)
+
 #plt.savefig('dendrite.png',format='png',dpi=300,bbox_inches='tight')
+
 plt.show()
 
