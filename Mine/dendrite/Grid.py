@@ -18,10 +18,7 @@ import numpy as np
 
 class grid:
     def __init__(self,n):
-        if n%2 == 0:
-            n = n+1
         self.grid = np.zeros((n,n))
-        self.grid[n//2,n//2] = 1
-
-
-
+    
+    def seed(self,colindex,rowindex):
+        self.grid[colindex,rowindex] = 1
