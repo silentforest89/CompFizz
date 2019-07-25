@@ -23,7 +23,7 @@ import matplotlib.pyplot as plt
 
 ### size of square grid
 # can change to whatever you want
-gridsize = 1000
+gridsize = 400
 
 ### create the grid
 grid = Grid.grid(gridsize)
@@ -32,15 +32,15 @@ grid = Grid.grid(gridsize)
 
 ### number of particles 
 # can change to whatever you want
-num_particles = 50000
+num_particles = 10000
 
 ### seed nucleation sites
 # can put as many as you want
 # usage is grid.seed(col,row), i.e. the grid location to place the nucleation site.
-grid.seed(100,50)
-grid.seed(100,150)
-grid.seed(100,50)
-grid.seed(100,50)
+grid.seed(100,100)
+grid.seed(300,100)
+grid.seed(100,300)
+grid.seed(300,300)
 
 
 
