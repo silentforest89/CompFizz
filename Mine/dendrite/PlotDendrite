@@ -39,11 +39,11 @@ except:
 
 
 # shift all non-zero data to a large number for use with imshow
-mask = (grid != 0).astype(int)*1000
+mask = (grid != 0).astype(int)*7500
 
 # plot it all
 fig, ax = plt.subplots()
-ax.imshow(grid+mask,cmap='magma')
+ax.imshow(grid+mask,cmap='CMRmap')
 for axis in ['top','bottom','left','right']:
   ax.spines[axis].set_linewidth(1.5)
 ax.minorticks_on()
@@ -55,9 +55,9 @@ ax.set_xlabel('X-coord',labelpad=4,fontweight='normal',
 ax.set_ylabel('Y-coord',labelpad=3,fontweight='normal',
               fontsize='large')
 
-#fig.suptitle('N = {}, Grid = {}x{}'.format(numwalkers,gridsize,gridsize),y=0.95)
+fig.suptitle('N = {}, Grid = {}x{}'.format(25000,500,500),y=0.95)
 
-#plt.savefig('dendrite.png',format='png',dpi=300,bbox_inches='tight')
+plt.savefig('dendrite.png',format='png',dpi=300,bbox_inches='tight')
 
 plt.show()
 
