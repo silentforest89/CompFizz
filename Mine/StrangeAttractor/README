@@ -1,0 +1,10 @@
+This code integrates the trajectory of particle in a Duffing oscillator potential. I tried to use Verlet but to get the V_n+1 step, you need F_n+1... but with damping, F_n+1 need V_n+1! Instead, I used Runge-Kutta.
+
+Look in main: there are 2 particles, you can change the intial conditions and potential for each. Also change the time step, dt and the number of steps to suit your problem.
+
+The code then writes the time, pos_1, vel_1, pos_2, vel_2 to a file in csv format.
+
+you can read this with plot_poincare.
+
+########################################################################
+NOTE! PlotPoincare doesn't work yet, I need to calculate the energy of the particle to get the actual Poincare section (constant energy slice!). I think Ill do this by computing it in the Main function, then plot an 'imshow' with the energy as the intensity. 
