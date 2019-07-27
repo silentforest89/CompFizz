@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import Duffing
 
 ### time step, number of steps
-dt = 0.0026179938779914945
+dt = 0.026179938779914945
 steps = int(100e6)
 time = np.arange(0,steps)*dt
 
@@ -44,7 +44,7 @@ for i in range(1,steps):
 #        +particle_1.forceparams['f0']*np.cos(particle_1.forceparams['omega']*time))
 
 ### save the data
-period = 1000
+period = 100
 data = np.append(time.reshape(steps,1),position_1.reshape(steps,1),axis=1)
 data = np.append(data,velocity_1.reshape(steps,1),axis=1)
 np.savetxt('duffing.csv',data[::period,:])
