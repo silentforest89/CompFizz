@@ -1,0 +1,19 @@
+GRID_SIZE	101
+N_PARTICLES	1000
+
+N_SEED		4
+		25, 25
+		25, 75
+		75, 25
+		75, 75
+		
+# this is a hack to launch from an arbitrary x,y coord...
+STARTING_EDGE	50
+STARTING_POINT	50
+STEP		'rectilinear'
+
+MAKE_MOVIE	'False'
+SHOW_FIG	'True'
+
+GRID_FILE	'grid.csv'
+RATE_FILE	'arrival_rate.csv'
