@@ -1,6 +1,6 @@
 You can run Main.py to calculate the eigenvalues for the hydrogen atom. atomic units are used (L=Bohr, M=electron_mass, E=hartree, charge=e). 
 
-This program calculates the l=0 energies and orbitals.
+This program calculates the l=0 energies and orbitals. It only used 4 basis functions, so only the first one (n=0) is any good.
 
 The code uses non-orthogonal basis functions so it has to handle the overlap matrix.
 	The basis functions are:
