@@ -16,7 +16,7 @@ class matrix:
                 self.matrix[i,j] = (np.pi/
                         (orbitals.alphas[i]+
                          orbitals.alphas[j]))**(3/2)
-        self.matrix = self.matrix+np.triu(self.matrix,k=1).T
+        self.matrix = self.matrix+np.triu(self.matrix,k=1).conj().T
 
     def transform(self):    
         eigen_vals, eigen_vecs = linalg.eigh(self.matrix) 

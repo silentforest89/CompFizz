@@ -15,7 +15,7 @@ overlap_matrix = Overlap.matrix(orbitals)
 overlap_matrix.transform()
 
 hamiltonian = Hamiltonian.hamiltonian(orbitals)
-hamiltonian.atomic(orbitals,params.nuclear_z)
+hamiltonian.compute_hqp_matrix(orbitals,params.nuclear_z)
 
 # diagonalize hamiltonian for starting point of SCF iteration
 last_energy_value = 0 
@@ -47,7 +47,7 @@ for num_iter in range(1,params.max_scf+1):
     
     # calculate hamiltonian matrix elements and diagonalize again
     orbitals.update_expansion_coefficients(new_coefficients,overlap_matrix.matrix)
-    hamiltonian.atomic(orbitals,params.nuclear_z)
+    hamiltonian.update_q_prqs_matrix(orbitals)
     hamiltonian.diagonalize(overlap_matrix.transformation_matrix)
     # calculate energy expectation value to check convergence
     hamiltonian.compute_ground_state_energy(orbitals)

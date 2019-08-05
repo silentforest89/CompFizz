@@ -6,9 +6,8 @@ class hamiltonian:
     def __init__(self,orbitals):
         self.num_orbitals = orbitals.num_orbitals
 
-    def atomic(self,orbitals,nuclear_z):
+    def compute_hqp_matrix(self,orbitals,nuclear_z):
         self.nuclear_z = nuclear_z
-        self.matrix = np.zeros((self.num_orbitals,self.num_orbitals))
         self.ke_matrix = np.zeros((self.num_orbitals,self.num_orbitals))
         self.pe_matrix = np.zeros((self.num_orbitals,self.num_orbitals))
         for i in range(self.num_orbitals):
@@ -21,14 +20,12 @@ class hamiltonian:
                 self.pe_matrix[i,j] = (-2*self.nuclear_z*np.pi/
                         (orbitals.alphas[i]+
                          orbitals.alphas[j]))
-        self.ke_matrix = self.ke_matrix+np.triu(self.ke_matrix,k=1).T
-        self.pe_matrix = self.pe_matrix+np.triu(self.pe_matrix,k=1).T
-        self.matrix = self.ke_matrix+self.pe_matrix
+        self.ke_matrix = self.ke_matrix+np.triu(self.ke_matrix,k=1).conj().T
+        self.pe_matrix = self.pe_matrix+np.triu(self.pe_matrix,k=1).conj().T
         self.hpq_matrix = self.ke_matrix+self.pe_matrix
-        self.compute_q_prqs(orbitals)
-        self.matrix = self.matrix+self.q_matrix
+        self.update_q_prqs_matrix(orbitals)
 
-    def compute_q_prqs(self,orbitals):
+    def update_q_prqs_matrix(self,orbitals):
         self.q_matrix = np.zeros((self.num_orbitals,self.num_orbitals))
         self.q_prqs = np.zeros((self.num_orbitals,self.num_orbitals,
                                     self.num_orbitals,self.num_orbitals))
@@ -51,6 +48,7 @@ class hamiltonian:
                 self.q_matrix[i,j] = (orbitals.expansion_coefficients.conj().dot(
                         np.matmul(self.q_prqs[i,:,j,:],
                             orbitals.expansion_coefficients)))
+        self.matrix = self.ke_matrix+self.pe_matrix+self.q_matrix
     
     def diagonalize(self,transformation_matrix):
         self.change_basis(transformation_matrix)
