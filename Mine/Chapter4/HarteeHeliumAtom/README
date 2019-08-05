@@ -1,4 +1,4 @@
-You can run Main.py to calculate the ground state energy and wave function for the helium atom using the Harteee approximation, i.e. uncorrelated independent particle approximation ignoring wavefunction antisymmetry. atomic units are used (L=Bohr, M=electron_mass, E=hartree, charge=e). 
+You can run Main.py to calculate the ground state energy and wave function for the helium atom using the Harteee-Fock method. atomic units are used (L=Bohr, M=electron_mass, E=hartree, charge=e). 
 
 This program calculates the l=0 energies and orbitals. It only used 4 basis functions, so only the first one (n=0) is any good.
 

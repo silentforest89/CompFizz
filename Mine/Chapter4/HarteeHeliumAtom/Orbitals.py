@@ -27,8 +27,6 @@ class orbitals:
         self.expansion_coefficients = (self.expansion_coefficients/
                 (self.expansion_coefficients.conj().dot(np.matmul(overlap_matrix,
                     self.expansion_coefficients)))**(1/2))
-        self.overlap = self.expansion_coefficients.conj().dot(
-                np.matmul(overlap_matrix,self.expansion_coefficients))
 
     def update_expansion_coefficients(self,new_coefficients,overlap_matrix):
         self.expansion_coefficients = new_coefficients
