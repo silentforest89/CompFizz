@@ -43,6 +43,8 @@ np.savetxt('eigenvectors.csv',hamiltonian.eigen_vecs,fmt='%.6f')
 # arbitrary phase had them all negative (real)
 hamiltonian.eigen_vecs[:,0] = -1*hamiltonian.eigen_vecs[:,0]
 
+print(hamiltonian.eigen_vals[0])
+
 # in Bohr units
 exact = 1/np.sqrt(np.pi)*np.exp(-orbitals.grid)
 
