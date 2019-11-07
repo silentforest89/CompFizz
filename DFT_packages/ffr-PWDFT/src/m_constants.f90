@@ -1,0 +1,11 @@
+MODULE m_constants
+  REAL(8), PARAMETER :: PI=4.d0*atan(1.d0)
+  REAL(8), PARAMETER :: FOURPI=4.D0*PI
+  !
+  REAL(8), PARAMETER :: EV2Ry=13.6058d0 ! eV to Ry
+  REAL(8), PARAMETER :: ANG2BOHR = 1.889725989d0
+  !
+  COMPLEX(8), PARAMETER :: ZZERO = cmplx(0.d0,0.d0,kind=8)
+  COMPLEX(8), PARAMETER :: ZONE  = cmplx(1.d0,0.d0,kind=8)
+  COMPLEX(8), PARAMETER :: ZIMAG = cmplx(0.d0,1.d0,kind=8)
+END MODULE
