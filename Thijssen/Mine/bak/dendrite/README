@@ -1,0 +1,8 @@
+'GrowDendrite' is the main function. It doesn't take any arguments. There are comments by the input that should make it easy to modify. It automatically writes a .csv file to the current directory with the final data in it. It is (default) 'last_run.csv', but you can edit the script and name it whatever you want.
+
+You can the use 'PlotDendrite' to read the .csv and plot. It takes (optionally) one argument: the name of the .csv file to read (INCLUDE THE .csv WHEN YOU GIVE IT THE NAME!). If you give no arguments, it looks for 'last_run.csv'. 
+
+'PlotDendrite' is easily 'hackable' if you want it to behave differently.
+
+Particle.py and Grid.py are the modules for the grid and particle classes that are used throughout.
+

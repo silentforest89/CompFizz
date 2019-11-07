@@ -1,0 +1,79 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Title:---------- GrowDendrite - Plotting tool
+
+Created on Mon Jul  1 13:13:23 2019
+
+Author:---------Ty Sterling
+Contact:--------ty.sterling@colorado.edu
+Instituion:-----University of Colorado Boulder
+Department:-----Material Science & Physics
+
+Description: This reads a .csv file (default name below or takes it as argument)
+    and creates a bitmap using matplotlib's .imshow() method. It's a simple tool
+    so tweak it however you want. Probably all you'll need to change is scale_factor 
+    and color_map below. Scale factor offsets the data from 0 so the lowest numbers 
+    dont look like theyre the same color as the background. The color_map is the 
+    color map... see the matplotlib docs!
+
+"""
+
+import numpy as np
+import matplotlib.pyplot as plt
+import sys
+import os
+
+filename = 'grid.csv'
+scale_factor = 1
+color_map = 'inferno'
+
+if len(sys.argv) > 2:
+    print('\nERROR: only takes one argument, the .csv file\n')
+    exit()
+elif len(sys.argv) == 2:
+    if not os.path.exists(sys.argv[1]):
+        print('\nERROR: file \'{}\' not found\n'.format(sys.argv[1]))
+        exit()
+    else:
+        filename = sys.argv[1]
+try:
+    grid = np.loadtxt(filename)
+except:
+    print('\nERROR: something seems wrong with the data\n')
+    exit()
+
+
+num_particles = int(grid.max()-1)
+edge_len = len(grid[:,0])
+
+# shift all non-zero data to a large number for use with imshow
+mask = (grid != 0).astype(int)*num_particles*scale_factor
+
+# plot it all
+fig, ax = plt.subplots()
+fig.set_size_inches(6,6,forward=True)
+fig.tight_layout(pad=2.5)
+
+ax.imshow(grid+mask,cmap=color_map,interpolation='hamming')
+
+for axis in ['top','bottom','left','right']:
+  ax.spines[axis].set_linewidth(1.5)
+
+ax.minorticks_on()
+ax.tick_params(which='both', width=1)
+ax.tick_params(which='major', length=5)
+ax.tick_params(which='minor', length=3, color='k')
+
+ax.set_xlabel('X-coord',labelpad=4,fontweight='normal',
+              fontsize='large')
+ax.set_ylabel('Y-coord',labelpad=4,fontweight='normal',
+              fontsize='large')
+
+fig.suptitle('N = {}, Grid = {}x{}'.format(num_particles,edge_len,edge_len),y=0.98,
+        fontsize='x-large',fontweight='bold')
+
+plt.savefig('dendrite.png',format='png',dpi=600,bbox_inches='tight')
+
+plt.show()
+

@@ -1,0 +1,19 @@
+GRID_SIZE	101
+N_PARTICLES	1000
+
+N_SEED		5
+		25, 50
+		50, 25
+		50, 50
+		50, 75
+		75, 50
+
+STARTING_EDGE	'random'
+STARTING_POINT	'random'
+STEP		'euclidean'
+
+MAKE_MOVIE	'False'
+SHOW_FIG	'True'
+
+GRID_FILE	'grid.csv'
+RATE_FILE	'arrival_rate.csv'

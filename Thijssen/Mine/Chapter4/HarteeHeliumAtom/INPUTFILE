@@ -1,0 +1,15 @@
+# INPUT file for ground state energy calcultion of Helium atom using Hartree approxiation
+# Don't change it
+
+NUM_ORBITALS		4
+ALPHAS 			0.298073, 1.242567, 5.782948, 38.474970
+NUCLEAR_Z		2
+
+NUM_GRID_POINTS		5000
+R_LIMIT 		12
+
+SCF_TOL 		1e-8
+MAX_SCF			50
+SCF_GUESS		'equal'
+
+SHOW_WAVEFUNCTION 	'False'

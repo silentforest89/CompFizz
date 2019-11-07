@@ -1,0 +1,9 @@
+This code integrates the trajectory of particle in a Duffing oscillator potential. I tried to use Verlet but to get the V_n+1 step, you need F_n+1... but with damping, to get F_n+1, you need V_n+1! Instead, I used Runge-Kutta.
+
+Look in main: there is 1 particle, you can change the intial conditions and potential for it. Also change the time step, dt and the number of steps to suit your problem.
+You can straightforwardly add more particles with different initial conditions to simulate simultaneously (they dont interact, so you could also do different independent simulations)
+
+The code then writes the time, pos_1, vel_1 to a file in csv format.
+
+you can read this with plot_poincare. This will plot the 'Strange Attractor' structure or you can edit it (comment out the scatter plot and uncomment the regulat .plot() to plot the position vs time.
+
